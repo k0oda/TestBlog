@@ -1,0 +1,15 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <h1>
+            {{ post.title }}
+        </h1>
+        <h2>
+            Автор: {{ post.author }} | {{ post.publication_date }}
+        </h2>
+        <p>
+            {{ post.text }}
+        </p>
+    {% endfor %}
+{% endblock %}
