@@ -4,7 +4,8 @@ from django.utils import timezone
 
 class Post(models.Model):
     author = models.CharField(max_length=20)
-    title = models.TextField()
+    title = models.CharField(max_length=100)
+    text = models.TextField(default='')
     publication_date = models.DateField(default=timezone.now())
 
     def publish(self):
