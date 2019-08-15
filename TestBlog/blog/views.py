@@ -23,3 +23,8 @@ class NewPost:
         else:
             form = PostForm()
         return render(request, 'blog/new_post.html', {'form': form})
+
+    @staticmethod
+    def post_detail(request, primary_key=None):
+        post = get_object_or_404(Post, pk=primary_key)
+        return render(request, 'blog/post_detail.html', {'post': post})

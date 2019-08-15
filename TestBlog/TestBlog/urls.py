@@ -21,5 +21,6 @@ from blog.views import NewPost
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Home.list_posts, name='list_posts'),
-    path('post/new/', NewPost.new_post, name='new_post'),
+    path('post/new/', Home.new_post, name='new_post'),
+    path('post/<int:primary_key>/', Home.post_detail, name='post_detail'),
 ]

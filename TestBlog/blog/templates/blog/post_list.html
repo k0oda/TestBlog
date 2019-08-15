@@ -17,7 +17,7 @@
                         {{ post.text }}
                     </p>
 
-                    <a href="#" class="card-link">
+                    <a href="{% url 'post_detail' primary_key=post.pk %}" class="card-link">
                         Читать дальше
                     </a>
                 </div>
