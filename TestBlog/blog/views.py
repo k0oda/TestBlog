@@ -10,9 +10,6 @@ class Home:
         posts = Post.objects.all()
         return render(request, 'blog/post_list.html', {'posts': posts})
 
-
-class NewPost:
-
     @staticmethod
     def new_post(request):
         if request.method == 'POST':
