@@ -8,6 +8,8 @@ class Home:
     @staticmethod
     def list_posts(request):
         posts = Post.objects.all()
+        for post in posts:
+            post.text = post.text[:200]
         return render(request, 'blog/post_list.html', {'posts': posts})
 
     @staticmethod
