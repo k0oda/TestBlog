@@ -1,0 +1,30 @@
+{% extends 'blog/index.html' %}
+
+{% block content %}
+    <div class="card border-dark">
+        <div class="card-body">
+            <h5 class="card-title">
+                {{ post.title }}
+            </h5>
+
+            <p class="card-subtitle mb-2 text-muted">
+                Автор: {{ post.author }}
+            </p>
+            
+            <p class="card-text">
+                {{ post.text }}
+            </p>
+
+            <a href="{% url 'post_detail' primary_key=post.pk %}" class="card-link">
+                Читать дальше
+            </a>
+        </div>
+
+        <div class="card-footer">
+            <small class="text-muted">
+                Последнее обновление: {{ post.publication_date }}
+            </small>
+        </div>
+
+    </div>
+{% endblock %}
