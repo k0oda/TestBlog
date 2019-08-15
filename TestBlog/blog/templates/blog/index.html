@@ -7,7 +7,14 @@
     <title>TestBlog</title>
 </head>
 <body>
-    <a href="{% url 'new_post' %}">Создать пост</a>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == '/' %} active {% else %} "" {% endif %}" href="/">Посты</a>
+        <li class="nav-item">
+            <a class="nav-link {% if request.path == '/post/new/' %} active {% else %} "" {% endif %}" href="{% url 'new_post' %}">Создать пост</a>
+        </li>
+    </ul>
+    <br>
     {% block content %}
     {% endblock %}
 </body>
