@@ -3,4 +3,5 @@ venv/
 blog/__pycache__/
 blog/migrations/
 TestBlog/__pycache__/
+TestBlog/settings/prod.py
 
