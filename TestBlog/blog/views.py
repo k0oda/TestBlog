@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from datetime import date
+from django.utils import timezone
 from .models import Post
 from .forms import PostForm
 
@@ -8,11 +8,11 @@ class Home:
 
     @staticmethod
     def list_posts(request):
-        posts = Post.objects.all()
+        posts = Post.objects.all().order_by('publication_date').reverse().order_by('publication_time')
         for post in posts:
             post.text_size = len(post.text)
             post.text = post.text[:200]
-        current_date = date.today()
+        current_date = timezone.localdate(timezone.now())
         return render(request, 'blog/post_list.html', {'posts': posts, 'current_date': current_date})
 
     @staticmethod
@@ -20,7 +20,7 @@ class Home:
         if request.method == 'POST':
             form = PostForm(request.POST)
             if form.is_valid():
-                form.save()
+                form.Meta.model.publish(form)
                 return redirect('list_posts')
         else:
             form = PostForm()

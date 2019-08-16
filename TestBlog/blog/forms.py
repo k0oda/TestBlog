@@ -11,4 +11,4 @@ class PostForm(ModelForm):
 
     class Meta:
         model = Post
-        exclude = ('publication_date',)
+        exclude = ('publication_date', 'publication_time')
