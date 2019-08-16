@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from datetime import date
 from .models import Post
 from .forms import PostForm
 
@@ -11,7 +12,8 @@ class Home:
         for post in posts:
             post.text_size = len(post.text)
             post.text = post.text[:200]
-        return render(request, 'blog/post_list.html', {'posts': posts})
+        current_date = date.today()
+        return render(request, 'blog/post_list.html', {'posts': posts, 'current_date': current_date})
 
     @staticmethod
     def new_post(request):

@@ -7,6 +7,9 @@
                 <div class="card-body">
                     <h5 class="card-title">
                         {{ post.title }}
+                        {% if post.publication_date == current_date %}
+                            <span class="badge badge-secondary">New</span>
+                        {% endif %}
                     </h5>
 
                     <p class="card-subtitle mb-2 text-muted">
