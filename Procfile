@@ -1,1 +1,1 @@
-web: python3 TestBlog/manage.py runserver
+web: gunicorn TestBlog.wsgi
