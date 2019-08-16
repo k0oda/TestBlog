@@ -1,26 +1,27 @@
 {% extends 'blog/index.html' %}
 
 {% block content %}
-    <div class="card border-dark">
-        <div class="card-body">
-            <h5 class="card-title">
-                {{ post.title }}
-            </h5>
+<div class="jumbotron bg-transparent">
+    <h5 class="text-center text-monospace display-4">
+        {{ post.title }}
+    </h5>
 
-            <p class="card-subtitle mb-2 text-muted">
-                Автор: {{ post.author }}
-            </p>
-            
-            <p class="card-text">
-                {{ post.text }}
-            </p>
-        </div>
+    <p class="text-muted text-center text-monospace">
+        Автор: {{ post.author }}
+    </p>
 
-        <div class="card-footer">
-            <small class="text-muted">
-                Последнее обновление: {{ post.publication_date }}
-            </small>
-        </div>
+    <hr class="my-4">
+    
+    <p class="text-justify lead">
+        {{ post.text }}
+    </p>
 
-    </div>
+    <hr class="my-4">
+
+    <small class="text-muted text-monospace">
+        <p class="text-center">
+        Последнее обновление: {{ post.publication_date }}
+        </p>
+    </small>
+</div>
 {% endblock %}
