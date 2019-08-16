@@ -14,7 +14,7 @@ import os
 import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
@@ -22,7 +22,23 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__fil
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['stormy-shore-19394.herokuapp.com',
+                 'www.stormy-shore-19394.herokuapp.com',
+                 ]
+
+DEBUG = bool(os.environ['DEBUG'])
+
+SECRET_KEY = os.environ['SECRET_KEY']
+
+SECURE_CONTENT_TYPE_NOSNIFF = bool(os.environ['SECURE_CONTENT_TYPE_NOSNIFF'])
+
+SECURE_BROWSER_XSS_FILTER = bool(os.environ['SECURE_BROWSER_XSS_FILTER'])
+
+SESSION_COOKIE_SECURE = bool(os.environ['SESSION_COOKIE_SECURE'])
+
+CSRF_COOKIE_SECURE = bool(os.environ['CSRF_COOKIE_SECURE'])
+
+X_FRAME_OPTIONS = bool(os.environ['X_FRAME_OPTIONS'])
 
 
 # Application definition
