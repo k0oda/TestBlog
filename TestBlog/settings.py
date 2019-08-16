@@ -38,7 +38,7 @@ SESSION_COOKIE_SECURE = bool(os.environ['SESSION_COOKIE_SECURE'])
 
 CSRF_COOKIE_SECURE = bool(os.environ['CSRF_COOKIE_SECURE'])
 
-X_FRAME_OPTIONS = bool(os.environ['X_FRAME_OPTIONS'])
+X_FRAME_OPTIONS = os.environ['X_FRAME_OPTIONS']
 
 
 # Application definition
