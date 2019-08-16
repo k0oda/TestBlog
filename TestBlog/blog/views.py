@@ -30,3 +30,18 @@ class Home:
     def post_detail(request, primary_key=None):
         post = get_object_or_404(Post, pk=primary_key)
         return render(request, 'blog/post_detail.html', {'post': post})
+
+    @staticmethod
+    def edit_post(request, primary_key=None):
+        post = get_object_or_404(Post, pk=primary_key)
+        if request.method == 'POST':
+            form = PostForm(request.POST, instance=post)
+            if form.is_valid():
+                post_to_save = form.save(commit=False)
+                post_to_save.publication_date = timezone.localdate(timezone.now())
+                post_to_save.publication_time = timezone.localtime(timezone.now())
+                post_to_save.save()
+                return redirect('list_posts')
+        else:
+            form = PostForm(instance=post)
+        return render(request, 'blog/new_post.html', {'form': form})
