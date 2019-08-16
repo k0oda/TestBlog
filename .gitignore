@@ -1,6 +1,6 @@
 .idea/
 venv/
-TestBlog/blog/__pycache__/
-TestBlog/blog/migrations/
-TestBlog/TestBlog/__pycache__/
+blog/__pycache__/
+blog/migrations/
+TestBlog/__pycache__/
 
