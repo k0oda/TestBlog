@@ -9,6 +9,7 @@ class Home:
     def list_posts(request):
         posts = Post.objects.all()
         for post in posts:
+            post.text_size = len(post.text)
             post.text = post.text[:200]
         return render(request, 'blog/post_list.html', {'posts': posts})
 

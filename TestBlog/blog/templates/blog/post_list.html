@@ -17,9 +17,11 @@
                         {{ post.text }}
                     </p>
 
-                    <a href="{% url 'post_detail' primary_key=post.pk %}" class="card-link">
-                        Читать дальше
-                    </a>
+                    {% if post.text_size > 200 %}
+                        <a href="{% url 'post_detail' primary_key=post.pk %}" class="card-link">
+                            Читать дальше
+                        </a>
+                    {% endif %}
                 </div>
 
                 <div class="card-footer">
