@@ -1,6 +1,7 @@
 {% extends 'blog/index.html' %}
 
 {% block content %}
+    {% load static %}
     <div class="card-columns">
         {% for post in posts %}
             <div class="card">
@@ -10,6 +11,12 @@
                         {% if post.publication_date == current_date %}
                             <span class="badge badge-secondary">New</span>
                         {% endif %}
+
+                        <div class="float-right">
+                            <a href="{% url 'edit_post' primary_key=post.pk %}">
+                                <img src="{% static 'blog/baseline-edit-24px.svg' %}" alt="edit">
+                            </a>
+                        </div>
                     </h5>
 
                     <p class="card-subtitle mb-2 text-muted">
